@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bruh Nails</title>
+
+    <!-- Fonte delicada -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Bruh Nails">
+    <h1>Bruh Nails</h1>
+</header>
+
+<div class="container">
+
+<h2>📅 Dias e Horários Disponíveis</h2>
+{% for dia, horarios in agenda.items() %}
+    <h3>{{ dia }}</h3>
+    <ul>
+        {% for h in horarios %}
+            <li>{{ h }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<h2>💅 Tipos de Unha</h2>
+<ul>
+{% for tipo, valor in tipos_unha.items() %}
+    <li>{{ tipo }} — R$ {{ valor }}</li>
+{% endfor %}
+</ul>
+
+<h2>🚗 Valor do Transporte</h2>
+<ul>
+{% for local, valor in transporte.items() %}
+    <li>{{ local }} — R$ {{ valor }}</li>
+{% endfor %}
+</ul>
+
+<h2>💰 Calcular Valor</h2>
+
+<form method="post">
+    <label>Tipo de Unha</label>
+    <select name="unha" required>
+        {% for tipo in tipos_unha %}
+            <option value="{{ tipo }}">{{ tipo }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Bairro</label>
+    <select name="bairro" required>
+        {% for bairro in transporte %}
+            <option value="{{ bairro }}">{{ bairro }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Calcular</button>
+</form>
+
+{% if total %}
+    <div class="total">
+        💵 Valor Total: R$ {{ total }}
+    </div>
+{% endif %}
+
+</div>
+
+</body>
+</html>

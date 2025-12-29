@@ -1,0 +1,120 @@
+:root {
+    --roxo: #A794E5;
+    --roxo-escuro: #8a77d6;
+    --branco: #ffffff;
+    --cinza: #f6f4fc;
+    --texto: #2e2e2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--cinza);
+    color: var(--texto);
+}
+
+/* TOPO */
+header {
+    background: var(--roxo);
+    color: var(--branco);
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header img {
+    width: 130px;
+    margin-bottom: 12px;
+}
+
+header h1 {
+    font-size: 2.6em;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--branco);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULOS */
+h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: var(--roxo-escuro);
+    font-weight: 500;
+}
+
+h3 {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* LISTAS */
+ul {
+    list-style: none;
+}
+
+ul li {
+    background: var(--cinza);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+/* FORM */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 14px;
+    border: none;
+    background: var(--roxo);
+    color: var(--branco);
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--roxo-escuro);
+}
+
+/* TOTAL */
+.total {
+    margin-top: 25px;
+    padding: 18px;
+    background: var(--roxo);
+    color: var(--branco);
+    font-size: 1.3em;
+    border-radius: 16px;
+    text-align: center;
+}
