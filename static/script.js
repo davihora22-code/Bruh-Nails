@@ -1,33 +1,84 @@
-const calendar = document.getElementById("calendar");
-const hoje = new Date();
-const diaHoje = hoje.getDate();
+const calendarDays = document.getElementById("calendarDays");
+const monthYear = document.getElementById("monthYear");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
 
-function renderMes(offset = 0) {
-  const data = new Date(hoje.getFullYear(), hoje.getMonth() + offset, 1);
-  const mes = data.getMonth() + 1;
-  const ano = data.getFullYear();
+const whatsappNumber = "5571986531160";
 
-  const titulo = document.createElement("h3");
-  titulo.innerText = data.toLocaleString("pt-BR", { month: "long" });
-  calendar.appendChild(titulo);
+let today = new Date();
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
 
-  for (let dia = 1; dia <= 31; dia++) {
-    if (offset === 0 && dia < diaHoje) continue;
+function renderCalendar() {
+  calendarDays.innerHTML = "";
 
-    const btn = document.createElement("button");
-    btn.innerText = `Dia ${dia}`;
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    btn.onclick = () => {
-      document.getElementById("dataSelecionada").value =
-        `${ano}-${String(mes).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
-    };
+  monthYear.innerText = `${today.toLocaleString("pt-BR", {
+    month: "long",
+  })} ${currentYear}`;
 
-    calendar.appendChild(btn);
+  for (let i = 0; i < firstDay; i++) {
+    calendarDays.appendChild(document.createElement("div"));
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.innerText = day;
+
+    const date = new Date(currentYear, currentMonth, day);
+
+    if (date < today) {
+      dayDiv.classList.add("disabled");
+    } else {
+      dayDiv.onclick = () => agendar(date);
+    }
+
+    calendarDays.appendChild(dayDiv);
+  }
+
+  // trava mês seguinte até dia 28
+  if (
+    currentMonth > today.getMonth() &&
+    today.getDate() < 28
+  ) {
+    nextMonth.disabled = true;
+  } else {
+    nextMonth.disabled = false;
   }
 }
 
-renderMes(0);
+function agendar(date) {
+  const dataFormatada = date.toLocaleDateString("pt-BR");
 
-if (diaHoje >= 28) {
-  renderMes(1);
+  const mensagem = encodeURIComponent(
+    `Olá! 😊 Gostaria de confirmar meu agendamento de unhas 💅
+📅 Data: ${dataFormatada}`
+  );
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${mensagem}`,
+    "_blank"
+  );
 }
+
+prevMonth.onclick = () => {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  renderCalendar();
+};
+
+nextMonth.onclick = () => {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar();
+};
+
+renderCalendar();

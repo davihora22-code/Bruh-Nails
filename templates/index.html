@@ -27,3 +27,26 @@
 <script src="/static/script.js"></script>
 </body>
 </html>
+<section id="agendamento">
+  <h2>Agende seu horário 💅</h2>
+
+  <div class="calendar-header">
+    <button id="prevMonth">◀</button>
+    <span id="monthYear"></span>
+    <button id="nextMonth">▶</button>
+  </div>
+
+  <div class="calendar-weekdays">
+    <span>Dom</span>
+    <span>Seg</span>
+    <span>Ter</span>
+    <span>Qua</span>
+    <span>Qui</span>
+    <span>Sex</span>
+    <span>Sáb</span>
+  </div>
+
+  <div id="calendarDays" class="calendar-days"></div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
