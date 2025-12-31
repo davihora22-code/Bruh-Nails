@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bruh Nails</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bruh Nails 💅</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container">
-  <h1>Agende seu horário</h1>
-  <p>Escolha um dia disponível e garanta sua vaga.</p>
+  <!-- LOGO -->
+  <header style="text-align:center; padding:20px;">
+    <img 
+      src="{{ url_for('static', filename='logo.jpeg') }}" 
+      alt="Bruh Nails Logo" 
+      style="max-width:180px;"
+    >
+  </header>
 
-  <div id="calendar"></div>
+  <!-- SERVIÇOS -->
+  <section style="padding:20px; text-align:center;">
+    <h2>Serviços 💅</h2>
 
-  <form id="form">
-    <input type="hidden" id="dataSelecionada" name="data">
-    <input type="text" name="nome" placeholder="Seu nome" required>
-    <input type="tel" name="telefone" placeholder="WhatsApp" required>
-    <button type="submit">Confirmar Agendamento</button>
-  </form>
+    <p>Manicure – R$ 30</p>
+    <p>Pedicure – R$ 35</p>
+    <p>Manicure + Pedicure – R$ 60</p>
 
-  <p id="msg"></p>
-</div>
+    <a 
+      href="https://wa.me/5571986531160" 
+      target="_blank"
+      style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#25d366; font-weight:bold;"
+    >
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+        alt="WhatsApp" 
+        width="24"
+      >
+      Falar no WhatsApp
+    </a>
+  </section>
 
-<script src="/static/script.js"></script>
+  <!-- AGENDAMENTO -->
+  <section id="agendamento" style="padding:20px;">
+    <h2 style="text-align:center;">Agende seu horário 📅</h2>
+
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth">◀</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth">▶</button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>Dom</span><span>Seg</span><span>Ter</span>
+        <span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+      </div>
+
+      <div id="calendarDays" class="calendar-days"></div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
-<section id="agendamento">
-  <h2>Agende seu horário 💅</h2>
-
-  <div class="calendar-header">
-    <button id="prevMonth">◀</button>
-    <span id="monthYear"></span>
-    <button id="nextMonth">▶</button>
-  </div>
-
-  <div class="calendar-weekdays">
-    <span>Dom</span>
-    <span>Seg</span>
-    <span>Ter</span>
-    <span>Qua</span>
-    <span>Qui</span>
-    <span>Sex</span>
-    <span>Sáb</span>
-  </div>
-
-  <div id="calendarDays" class="calendar-days"></div>
-</section>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
