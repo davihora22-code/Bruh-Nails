@@ -3,65 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bruh Nails 💅</title>
+  <title>Bruh Nails</title>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-  <!-- LOGO -->
-  <header style="text-align:center; padding:20px;">
-    <img 
-      src="{{ url_for('static', filename='logo.jpeg') }}" 
-      alt="Bruh Nails Logo" 
-      style="max-width:180px;"
-    >
-  </header>
+  <main class="card">
+    <img src="{{ url_for('static', filename='logo.png') }}" id="logo" alt="Bruh Nails">
 
-  <!-- SERVIÇOS -->
-  <section style="padding:20px; text-align:center;">
-    <h2>Serviços 💅</h2>
+    <h1>Bruh Nails</h1>
+    <p class="subtitle">Unhas & Beleza</p>
 
-    <p>Manicure – R$ 30</p>
-    <p>Pedicure – R$ 35</p>
-    <p>Manicure + Pedicure – R$ 60</p>
+    <a href="#" class="btn">Agende seu horário</a>
+    <a href="#" class="btn">Fale comigo</a>
+    <a href="#" class="btn">Instagram</a>
+    <a href="#" class="btn">Como chegar</a>
+  </main>
 
-    <a 
-      href="https://wa.me/5571986531160" 
-      target="_blank"
-      style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#25d366; font-weight:bold;"
-    >
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-        alt="WhatsApp" 
-        width="24"
-      >
-      Falar no WhatsApp
-    </a>
-  </section>
-
-  <!-- AGENDAMENTO -->
-  <section id="agendamento" style="padding:20px;">
-    <h2 style="text-align:center;">Agende seu horário 📅</h2>
-
-    <div class="calendar-container">
-      <div class="calendar-header">
-        <button id="prevMonth">◀</button>
-        <span id="monthYear"></span>
-        <button id="nextMonth">▶</button>
-      </div>
-
-      <div class="calendar-weekdays">
-        <span>Dom</span><span>Seg</span><span>Ter</span>
-        <span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-      </div>
-
-      <div id="calendarDays" class="calendar-days"></div>
-    </div>
-  </section>
-
-  <!-- SCRIPT -->
-  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
-
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
 </html>

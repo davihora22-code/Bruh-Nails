@@ -1,92 +1,64 @@
-body {
+:root {
+  --accent: #b9a7e6;
+  --accent-dark: #7a67b8;
+  --bg: #f4f2fa;
+}
+
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f6f6f6;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-.container {
-  max-width: 420px;
-  margin: auto;
-  padding: 16px;
-}
-
-h1 {
-  text-align: center;
-}
-
-p {
-  text-align: center;
-}
-
-#calendar button {
-  width: 100%;
-  margin: 6px 0;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #6c2bd9;
-  color: white;
-  font-size: 16px;
-}
-
-#calendar button.lotado {
-  background: #ccc;
-}
-
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-#agendamento {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.calendar-header {
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg), #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 10px;
 }
 
-.calendar-header button {
-  padding: 6px 12px;
-  font-size: 18px;
-  cursor: pointer;
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 22px;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(0,0,0,.08);
 }
 
-.calendar-weekdays,
-.calendar-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+#logo {
+  width: 140px;
+  margin-bottom: 16px;
 }
 
-.calendar-weekdays span {
-  font-weight: bold;
+h1 {
+  color: var(--accent-dark);
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-.calendar-days div {
-  padding: 12px 0;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #f2f2f2;
+.subtitle {
+  color: #777;
+  margin-bottom: 28px;
 }
 
-.calendar-days div:hover {
-  background: #d9d9d9;
+.btn {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  margin-bottom: 14px;
+  border-radius: 28px;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
-.calendar-days .disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-.calendar-days .selected {
-  background: #25d366;
-  color: white;
+.btn:hover {
+  background: var(--accent-dark);
+  transform: scale(1.02);
 }
